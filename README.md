@@ -6,3 +6,8 @@ This is designed to be used on digital signage in a portrait orientation.   The 
 
 
 If needed resolution and refresh times can be updated in the script along with what newspapers are downloaded.  The concept is based around something I saw at the University of North Carolina Hunt Library, though I never saw how they originally programmed this.
+
+
+
+<H3>Recommended values</H3
+$refreshTime = 45
