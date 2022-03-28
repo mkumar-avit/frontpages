@@ -89,13 +89,17 @@ $totalRequests = $frontpagesArray.Count
 
 write-host  "Downloaded $totalDownloads out of $totalRequests requests."  
 
-try{
-    Stop-Process -processname chrome
+$chrome = Get-Process chrome -ErrorAction SilentlyContinue
+if ($chrome){
+  # try gracefully first
+  $chrome.CloseMainWindow()
+  # kill after five seconds
+  Sleep 5
+  if (!$chrome.HasExited) {
+    $chrome | Stop-Process -Force
+  }
 }
-catch{
-    write-host  "No Chrome browser found to reset"     
-}
-
+Sleep 6
 $command = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
 $params =  '--profile-directory="Profile 1" --incognito --kiosk file://{0}/news2.html --hide-scrollbars --start-fullscreen' -f $uncPath
 #overscroll-history-navigation=0
