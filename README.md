@@ -10,4 +10,4 @@ If needed resolution and refresh times can be updated in the script along with w
 
 
 <H3>Recommended values</H3
-"$refreshTime = 45"
+\$refreshTime = 45"
