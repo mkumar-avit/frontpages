@@ -5,6 +5,7 @@ $refreshTime = 20
 $resWidth = "100%"
 $resHeight = "100vh"
 $myDocs = [Environment]::GetFolderPath("MyDocuments")
+$startPDF = 1
 $saveFolder ="Newspapers"
 $userFolder = $myDocs + "\" + $saveFolder 
 #write-host  "User Folder: " + $userFolder 
@@ -47,6 +48,8 @@ foreach ($frontpage in $frontpagesArray) {
  } 
 }
 
+$totalDownloads = $nCounter - 1
+
 $html= '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">' + "`n"
 $html = $html + '<html>' + "`n"
 $html = $html + '<head>'  + "`n"
@@ -67,7 +70,7 @@ var pdf_parameters = '#page=1&toolbar=0&navpanes=0&view=FitH,0&scrollbar=0\"';
 $html = $html + $html_sub + "`n"
 $html = $html + 'var url_page = "{0}/"' -f $uncPath
 $html = $html + "`n" 
-$html = $html + 'var n = (Math.floor(Math.random() * (' + [string]$nCounter + '))+1);' + "`n"
+$html = $html + 'var n = (Math.floor(Math.random() * (' + [string]$totalDownloads +'))+1);' + "`n"
 $html = $html + 'var nString = n.toString();' + "`n"   
 $html = $html + 'var url = "" + url_page + nString + "" + url_extension;' + "`n"
 $html = $html + 'document.getElementById("PDFFrontPage").innerHTML = "<iframe src=\"" + url + "" + pdf_parameters + "\" style=\"width:{0}; height:{1};\" frameborder=\"0\" scrolling=\"no\"></iframe>";' -f $resWidth, $resHeight + "`n"
