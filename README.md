@@ -1,6 +1,6 @@
 <H1>Description</H1>
 
-Will pull front page of newspapers in PDF format.  May need to obtain permissions from Newseum.com or inidvidual newspapers for continual use.
+Will pull front page of newspapers in PDF format.  May need to obtain permissions from Newseum.com or individual newspapers for continual use.
 
 This is designed to be used on digital signage in a portrait orientation.   The user can schedule the Powershell script to run once or twice daily, and it will pull front page of newspapers and trigger chrome to display and randomly rotate through the PDFs.
 
