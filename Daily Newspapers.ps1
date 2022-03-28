@@ -1,4 +1,4 @@
-write-host  "Designed for Digital Signage displays in Portrait orientation"
+write-host  "Front Pages: Designed for Digital Signage displays in Portrait orientation"
 write-host  "Deleting Existing Files"
 
 $refreshTime = 20
@@ -11,8 +11,11 @@ $userFolder = $myDocs + "\" + $saveFolder
 $uncPath = "{0}" -f ($userFolder -replace "\\", "/" -replace " ", "%20")
 write-host  "UNC Path Download: " + $uncPath
 
+if (-not (Test-Path $userFolder)) {
+    write-host  "Creating Folder $userFolder"
+    New-Item -Path "$myDocs" -Name "$saveFolder" -ItemType "directory"
+}
 
-New-Item -Path "$myDocs" -Name "$saveFolder" -ItemType "directory"
 Remove-Item "$userFolder\*.*" | Where { ! $_.PSIsContainer }
 
 $todayDate = Get-Date
