@@ -11,3 +11,8 @@ If needed resolution and refresh times can be updated in the script along with w
 
 <H3>Recommended values</H3>
 $refreshTime = 45
+
+
+<H3> Future Developments </H3>
+Will be working on an option to automatically pull newspaper names and randomizing which one gets selected for viewing, instead of using a manually generated array.
+
